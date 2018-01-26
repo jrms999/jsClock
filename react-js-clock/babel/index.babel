@@ -1,0 +1,78 @@
+const ReactCSSTransitionGroup = React.addons.CSSTransitionGroup;
+/* Clock cell */
+let ClockCell = React.createClass({
+  getInitialState: function() {
+    return {
+      animated: false
+    }
+  },
+
+  componentWillReceiveProps: function(nextProps) {
+    let animationState = this.props.timeValue !== nextProps.timeValue ? true : false;
+    this.setState({
+      animated: animationState
+    });
+  },
+
+  render: function() {
+    let className = "clock-cell ";
+    className += this.state.animated ? "flip" : "";
+    return (
+        <div className={className}> {this.props.timeValue} </div>
+    );
+  }
+});
+
+/* CLOCK component  */
+let Clock = React.createClass({
+  getInitialState: function() {
+    let newDate = new Date(),
+      currentTime = newDate.toLocaleTimeString().split(/:| /);
+    return this.getTime(currentTime);
+  },
+
+  componentDidMount: function() {
+    this.timerID = setInterval(
+      () => this.tick(), 1000
+    );
+  },
+
+  componentWillUnmount: function() {
+    clearInterval(this.timerID);
+  },
+
+  getTime: function(time) {
+    return {
+      hour: time[0].length === 1 ? "0" + time[0] : time[0],
+      minutes: time[1],
+      seconds: time[2],
+      period: time[3]
+    }
+  },
+
+  tick: function() {
+    let newDate = new Date(),
+      currentTime = newDate.toLocaleTimeString().split(/:| /)
+    this.setState(this.getTime(currentTime));
+  },
+
+  render: function() {
+    return (
+      <div className="clock">
+          <ClockCell timeValue={this.state.hour[0]}/>
+          <ClockCell timeValue={this.state.hour[1]}/> 
+          <ClockCell timeValue={this.state.minutes[0]}/>
+          <ClockCell timeValue={this.state.minutes[1]}/> 
+          <ClockCell timeValue={this.state.seconds[0]}/>
+          <ClockCell timeValue={this.state.seconds[1]}/>
+          <ClockCell timeValue={this.state.period}/>
+      </div>
+    );
+  }
+});
+
+/* RENDER the DOM*/
+ReactDOM.render(
+  <Clock />,
+  document.getElementById('mainContainer')
+);
