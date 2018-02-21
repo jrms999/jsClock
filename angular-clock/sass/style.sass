@@ -1,0 +1,31 @@
+@import compass
+
+$black: #464646
+$white: #f0f0f0
+.wrap
+  display: inline-block
+  text-align: center
+  width: 100%
+  h2, h2 span 
+    color: $black
+.clock
+  display: inline-block
+  overflow: hidden
+  margin: 0 auto
+  section
+    float: left
+    background: $black
+    &.hour-unit, &.minute-unit
+      margin-right: 4px
+    &.hour-ten, &.minute-ten, &.second-ten
+      div
+        margin-right: 0
+  div
+    width: 2em
+    height: 2em
+    background: $black
+    margin: .5em
+  .dark
+    background: $black
+  .light
+    background: $white

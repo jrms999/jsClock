@@ -1,0 +1,39 @@
+.wrap(ng-app='clock' ng-controller='ClockController')
+  .clock
+    section.hour-ten
+      div
+      div
+      div(class='{{hour | color:6}}')
+      div(class='{{hour | color:5}}')
+    section.hour-unit
+      div(class='{{hour | color:4}}')
+      div(class='{{hour | color:3}}')
+      div(class='{{hour | color:2}}')
+      div(class='{{hour | color:1}}')
+    section.minute-ten
+      div
+      div(class='{{minute | color:7}}')
+      div(class='{{minute | color:6}}')
+      div(class='{{minute | color:5}}')
+    section.minute-unit
+      div(class='{{minute | color:4}}')
+      div(class='{{minute | color:3}}')
+      div(class='{{minute | color:2}}')
+      div(class='{{minute | color:1}}')
+    section.second-ten
+      div
+      div(class='{{second | color:7}}')
+      div(class='{{second | color:6}}')
+      div(class='{{second | color:5}}')
+    section.second-unit
+      div(class='{{second | color:4}}')
+      div(class='{{second | color:3}}')
+      div(class='{{second | color:2}}')
+      div(class='{{second | color:1}}')
+  h2
+    span(ng-bind='hour')
+    | :
+    span(ng-bind='minute')
+    | :
+    span(ng-bind='second')
+    

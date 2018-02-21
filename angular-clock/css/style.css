@@ -1,0 +1,36 @@
+.wrap {
+  display: inline-block;
+  text-align: center;
+  width: 100%;
+}
+.wrap h2, .wrap h2 span {
+  color: #464646;
+}
+
+.clock {
+  display: inline-block;
+  overflow: hidden;
+  margin: 0 auto;
+}
+.clock section {
+  float: left;
+  background: #464646;
+}
+.clock section.hour-unit, .clock section.minute-unit {
+  margin-right: 4px;
+}
+.clock section.hour-ten div, .clock section.minute-ten div, .clock section.second-ten div {
+  margin-right: 0;
+}
+.clock div {
+  width: 2em;
+  height: 2em;
+  background: #464646;
+  margin: 0.5em;
+}
+.clock .dark {
+  background: #464646;
+}
+.clock .light {
+  background: #f0f0f0;
+}

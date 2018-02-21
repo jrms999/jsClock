@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html >
+<head>
+  <meta charset="UTF-8">
+  <title>Angular Clock</title>
+      <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div class="wrap" ng-app="clock" ng-controller="ClockController">
+  <div class="clock">
+    <section class="hour-ten">
+      <div></div>
+      <div></div>
+      <div class="{{hour | color:6}}"></div>
+      <div class="{{hour | color:5}}"></div>
+    </section>
+    <section class="hour-unit">
+      <div class="{{hour | color:4}}"></div>
+      <div class="{{hour | color:3}}"></div>
+      <div class="{{hour | color:2}}"></div>
+      <div class="{{hour | color:1}}"></div>
+    </section>
+    <section class="minute-ten">
+      <div></div>
+      <div class="{{minute | color:7}}"></div>
+      <div class="{{minute | color:6}}"></div>
+      <div class="{{minute | color:5}}"></div>
+    </section>
+    <section class="minute-unit">
+      <div class="{{minute | color:4}}"></div>
+      <div class="{{minute | color:3}}"></div>
+      <div class="{{minute | color:2}}"></div>
+      <div class="{{minute | color:1}}"></div>
+    </section>
+    <section class="second-ten">
+      <div></div>
+      <div class="{{second | color:7}}"></div>
+      <div class="{{second | color:6}}"></div>
+      <div class="{{second | color:5}}"></div>
+    </section>
+    <section class="second-unit">
+      <div class="{{second | color:4}}"></div>
+      <div class="{{second | color:3}}"></div>
+      <div class="{{second | color:2}}"></div>
+      <div class="{{second | color:1}}"></div>
+    </section>
+  </div>
+  <h2><span ng-bind="hour"></span>:<span ng-bind="minute"></span>:<span ng-bind="second"></span></h2>
+</div>
+  <script src='http://cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.10/angular.min.js'></script>
+
+    <script  src="js/index.js"></script>
+
+</body>
+</html>
